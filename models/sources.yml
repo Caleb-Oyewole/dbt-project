@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: staging
+    schema: staging
+    description: Data loaded into my data warehouse from source systems
+    tables:
+      - name: customers
+        description: Table containing individual customer records
+      - name: orders
+        description: Table containing individual customer orders
+      - name: payments 
+        description: Table containing individual customer's payment details

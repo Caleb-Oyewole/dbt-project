@@ -6,7 +6,7 @@ with
             id as customer_id,
             first_name,
             last_name
-        from `databuild-471423.jaffle_shop.customers`
+        from {{ source('staging', 'customers') }}
     ),
 
     orders as (
@@ -15,7 +15,7 @@ with
             user_id as customer_id,
             order_date,
             status
-        from `databuild-471423.jaffle_shop.orders`
+        from {{ source('staging', 'orders') }}
     ),
 
     payments as (
@@ -24,7 +24,7 @@ with
             orderid as order_id,
             paymentmethod as payment_method,
             amount / 100 as amount
-        from `databuild-471423.jaffle_shop.payments`   
+        from {{ source('staging', 'payments') }}   
     ),
 
     customer_orders as (
